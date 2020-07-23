@@ -36,8 +36,8 @@ conecta(34, 35).
 conecta(35, 36).
 
 
-conectado(Pos1,Pos2) :- conecta(Pos1,Pos2).
-conectado(Pos1,Pos2) :- conecta(Pos2,Pos1).
+conectado(Pos1,Pos2) :- conect(Pos1,Pos2).
+conectado(Pos1,Pos2) :- conect(Pos2,Pos1).
 
 miembro(X,[X|_]).
 miembro(X,[_|Y]) :- miembro(X,Y) .
