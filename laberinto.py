@@ -19,18 +19,13 @@ def leer(texto):
         return np.loadtxt("laberinto.txt",str,skiprows=0)
 
 def revisarfila(matriz,matriz2,fila):
-    if matriz == []:
-        return []
-    else:
-        for f in range(len(matriz)):
+    for f in range(len(matriz)):
             matriz2.append(matriz[fila][f])
     return matriz2
 
 def revisarcolumna(matriz,matriz2,colum):
-    if matriz == []:
-        return []
-    else:
-        for f in range(len(matriz)):
+
+    for f in range(len(matriz)):
             matriz2.append(matriz[f][colum])
     return matriz2
 
@@ -67,24 +62,12 @@ conectar(eliminarespacios(revisarfila(leer(""),[],8)))
 conectar(eliminarespacios(revisarfila(leer(""),[],10)))
 conectar(eliminarespacios(revisarfila(leer(""),[],12)))
 
-
-
-for sol in prolog.query("sol()"):
-    for clave,valor in sol.items():
-        print (valor)
-
-print ("  ")
-
-
-
-"""slu = list(sol.items())
-print(slu[0])"""
-
-
-
-    
+for sol in prolog.query("sol()"): 
+    for x in sol:
+        print(sol)          
         
-   
+        
+ 
 ##########################################Dibujar Laberinto##############################
 class Pen(turtle.Turtle):
     def __init__(self):
@@ -98,6 +81,7 @@ niveles = []
 
 
 nivel_1 = []
+nivel_1.append(revisarfila(leer(""),[],0))
 nivel_1.append(revisarfila(leer(""),[],1))
 nivel_1.append(revisarfila(leer(""),[],2))
 nivel_1.append(revisarfila(leer(""),[],4))
@@ -106,6 +90,7 @@ nivel_1.append(revisarfila(leer(""),[],8))
 nivel_1.append(revisarfila(leer(""),[],10))
 nivel_1.append(revisarfila(leer(""),[],12))
 nivel_1.append(revisarfila(leer(""),[],13))
+nivel_1.append(revisarfila(leer(""),[],14))
 niveles.append(nivel_1)
 
 def iniciar_lab(nivel):
@@ -114,15 +99,94 @@ def iniciar_lab(nivel):
             barra = nivel[fila][column]
             screen_x = -288 + (column * 24)
             screen_y = 288 - (fila * 24)
-            if barra == "i" or "f":
+            if barra == "*":
+                pen.goto(screen_x, screen_y)
+                pen.color("black")
+                pen.stamp() 
+            elif barra == "|":
+                pen.goto(screen_x, screen_y)
+                pen.color("white")
+                pen.stamp() 
+            elif barra == "i":
                 pen.goto(screen_x, screen_y)
                 pen.color("red")
                 pen.stamp()
-            if barra == "|":
+            elif barra == "2":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "3":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "4":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "10":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "16":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "22":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "21":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "15":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "14":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "20":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "26":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "27":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "28":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "34":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "33":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "32":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra == "f":
+                pen.goto(screen_x, screen_y)
+                pen.color("red")
+                pen.stamp()
+            elif barra != "i" or "2" or "3" or "4" or "10" or "16" or "22" or "21" or "15" or "14" or "20" or "26" or "27" or "28" or "34" or "33" or "32" or "f":
                 pen.goto(screen_x, screen_y)
                 pen.color("white")
-                pen.stamp()    
+                pen.stamp()
+                         
+            
 pen = Pen()
 
 iniciar_lab(niveles[0])
 
+turtle.done()
